@@ -1,4 +1,4 @@
-use std::collections::{HashSet, BTreeSet};
+use std::collections::{BTreeMap, BTreeSet, HashMap, HashSet};
 
 enum Element {
     Number(i32),
@@ -10,7 +10,7 @@ enum Element {
 {
     fast find
     fast remove
-    slow insert 
+    slow insert
 }: compared to vec
 
 non duplicate
@@ -20,7 +20,7 @@ fn get_set() {
     // two type of imp detail
     let mut set = HashSet::new();
     let mut _b_set: BTreeSet<i32> = BTreeSet::new();
-    
+
     // insert
     set.insert(2);
     set.insert(6);
@@ -31,7 +31,6 @@ fn get_set() {
     // remove
     let _is_removed = set.remove(&2);
 }
-
 
 // static array
 fn get_array() -> [i32; 2] {
@@ -48,31 +47,28 @@ fn get_vector() -> Vec<Element> {
     vec1.push(Element::Number(1));
     vec1.push(Element::Boolean(true));
 
-    let mut _vec2 = vec![1,2];
+    let mut _vec2 = vec![1, 2];
 
     let mut vec3 = Vec::with_capacity(2);
     vec3.push(1);
     vec3.push(2);
 
-
     // resize
     _vec2.resize(5, 89);
-    vec1.resize_with(5, || {
-        return  Element::Number(89)
-    });
-    
+    vec1.resize_with(5, || return Element::Number(89));
+
     //pop
     vec1.pop();
-    
+
     //insert
-    _vec2.insert(1, 5); 
+    _vec2.insert(1, 5);
 
     //erase
     _vec2.remove(2);
 
     //iter
     let _found = vec1.iter().find(|e| {
-        return  match e {
+        return match e {
             Element::Number(v) => v == &1,
             Element::Boolean(_) => false,
         };
@@ -85,6 +81,19 @@ fn get_vector() -> Vec<Element> {
 
 fn get_tuple() -> (i32, i32) {
     (1, 2)
+}
+
+// map
+fn get_map() {
+    let hash_map = HashMap::from([("s", 1), ("w", 2)]);
+    let hash_map2 = HashMap::from([("s", 1), ("w", 2)]);
+    let _tree_map = BTreeMap::from([("s", 1), ("w", 2)]);
+
+    let equal = hash_map == hash_map2;
+    match equal {
+        true => println!("is equal"),
+        false => println!("is not equal"),
+    }
 }
 
 fn main() {
@@ -107,14 +116,11 @@ fn main() {
 
     let (t1, t2) = get_tuple();
 
-   let aa = Element::Number(2);
+    get_set();
 
-   get_set();
+    get_map();
 
     println!("array: a0:{a0} a1:{a1}");
     println!("vector: vec1:{vec1} size:{size}");
     println!("tuple t1:{t1} t2:{t2}");
-
-
-  
 }
