@@ -40,6 +40,16 @@ fn get_vector() -> Vec<Element> {
     //erase
     _vec2.remove(2);
 
+    //iter
+    let _found = vec1.iter().find(|e| {
+        return  match e {
+            Element::Number(v) => v == &1,
+            Element::Boolean(_) => false,
+        };
+    });
+
+    _vec2.sort();
+
     vec1
 }
 
