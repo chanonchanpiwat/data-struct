@@ -11,11 +11,36 @@ fn get_array() -> [i32; 2] {
 
 // dynamic array
 fn get_vector() -> Vec<Element> {
-    let mut vec: Vec<Element> = Vec::new();
-    vec.push(Element::Number(1));
-    vec.push(Element::Number(2));
-    vec.push(Element::Boolean(true));
-    vec
+    // three way initialize
+    let mut vec1: Vec<Element> = Vec::new();
+
+    //push
+    vec1.push(Element::Number(1));
+    vec1.push(Element::Boolean(true));
+
+    let mut _vec2 = vec![1,2];
+
+    let mut vec3 = Vec::with_capacity(2);
+    vec3.push(1);
+    vec3.push(2);
+
+
+    // resize
+    _vec2.resize(5, 89);
+    vec1.resize_with(5, || {
+        return  Element::Number(89)
+    });
+    
+    //pop
+    vec1.pop();
+    
+    //insert
+    _vec2.insert(1, 5); 
+
+    //erase
+    _vec2.remove(2);
+
+    vec1
 }
 
 fn get_tuple() -> (i32, i32) {
@@ -38,10 +63,16 @@ fn main() {
         },
         None => panic!(),
     };
+    let size = vec.len();
 
     let (t1, t2) = get_tuple();
 
+   let aa = Element::Number(2);
+
     println!("array: a0:{a0} a1:{a1}");
-    println!("vector: vec1:{vec1}");
+    println!("vector: vec1:{vec1} size:{size}");
     println!("tuple t1:{t1} t2:{t2}");
+
+
+  
 }
