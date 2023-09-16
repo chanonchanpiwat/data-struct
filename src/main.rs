@@ -1,7 +1,37 @@
+use std::collections::{HashSet, BTreeSet};
+
 enum Element {
     Number(i32),
     Boolean(bool),
 }
+
+// set
+/*
+{
+    fast find
+    fast remove
+    slow insert 
+}: compared to vec
+
+non duplicate
+sorted ??
+*/
+fn get_set() {
+    // two type of imp detail
+    let mut set = HashSet::new();
+    let mut _b_set: BTreeSet<i32> = BTreeSet::new();
+    
+    // insert
+    set.insert(2);
+    set.insert(6);
+
+    // get
+    set.get(&1);
+
+    // remove
+    let _is_removed = set.remove(&2);
+}
+
 
 // static array
 fn get_array() -> [i32; 2] {
@@ -78,6 +108,8 @@ fn main() {
     let (t1, t2) = get_tuple();
 
    let aa = Element::Number(2);
+
+   get_set();
 
     println!("array: a0:{a0} a1:{a1}");
     println!("vector: vec1:{vec1} size:{size}");
