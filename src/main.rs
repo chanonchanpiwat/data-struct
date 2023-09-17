@@ -1,3 +1,4 @@
+mod data;
 use std::collections::{BTreeMap, BTreeSet, HashMap, HashSet};
 
 enum Element {
