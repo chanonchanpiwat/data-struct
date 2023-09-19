@@ -1,12 +1,11 @@
 use std::cmp::Ordering;
 
-
 pub struct Pair<T, U> {
     first: T,
     second: U,
 }
 
-// todpp Ord later
+// to doo Ord later
 impl <T, U> Pair<T, U> {
   pub fn new(first: T, second: U)-> Self {
     Self { first, second }
@@ -37,6 +36,8 @@ where
 fn test() {
   let pair_1 = Pair::new(2,3);
   let pair_2 = Pair::new(2,5);
+  let _ = pair_1.cmp(&pair_2) == Ordering::Less;
 
+  let aa = &pair_2;
   assert!(pair_1.cmp(&pair_2) == Ordering::Less, "Should be less than");
 }
