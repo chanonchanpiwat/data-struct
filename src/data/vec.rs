@@ -1,6 +1,7 @@
 use std::alloc::{self, Layout};
 use std::mem;
 use std::ptr::{self, NonNull};
+#[allow(warnings)]
 pub struct Vec<T> {
     ptr: NonNull<T>,
     cap: usize,

@@ -1,5 +1,5 @@
 // LIFO
-
+#[allow(warnings)]
 use std::{vec::Vec};
 
 struct Stack<T> {
@@ -15,18 +15,18 @@ impl<T> Stack<T> {
         }
     }
 
-    fn push(&mut self, element: T) {
+    pub fn push(&mut self, element: T) {
         self.data.push(element);
         self.size += 1;
     }
 
-    fn pop(&mut self) -> Option<T> {
+    pub fn pop(&mut self) -> Option<T> {
         let top = self.data.pop();
         self.size -= 1;
         top
     }
 
-    fn top(&self) -> Option<&T> {
+    pub fn top(&self) -> Option<&T> {
       self.data.last()
   }
 }
@@ -38,7 +38,7 @@ mod test {
   #[test]
   fn test() {
     let mut stack: Stack<i32> = Stack::new();
-
+    
     assert!(stack.top() == None, "Initial");
 
     stack.push(1);

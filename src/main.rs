@@ -1,6 +1,6 @@
 mod data;
 use std::collections::{BTreeMap, BTreeSet, HashMap, HashSet};
-
+#[allow(warnings)]
 enum Element {
     Number(i32),
     Boolean(bool),

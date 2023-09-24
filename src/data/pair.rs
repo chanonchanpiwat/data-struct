@@ -31,13 +31,12 @@ where
     }
 }
 
-#[cfg(test)]
 #[test]
 fn test() {
   let pair_1 = Pair::new(2,3);
   let pair_2 = Pair::new(2,5);
   let _ = pair_1.cmp(&pair_2) == Ordering::Less;
 
-  let aa = &pair_2;
+  let _aa = &pair_2;
   assert!(pair_1.cmp(&pair_2) == Ordering::Less, "Should be less than");
 }
